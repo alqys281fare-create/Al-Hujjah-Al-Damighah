@@ -1,0 +1,52 @@
+.sec.is-service, .sec.is-pillar, .sec.is-review { font-family: var(--font); }
+
+/* ===== service cards ===== */
+.svc-tabs-wrap { display: flex; justify-content: center; margin-bottom: 2.6rem; }
+.svc-tabs { display: flex; width: min(480px, 100%); padding: 5px; background: #fff; border: 1px solid var(--gold-solid); border-radius: 999px; box-shadow: var(--shadow-sm); }
+.svc-tabs button { flex: 1; border: 0; background: none; cursor: pointer; border-radius: 999px; padding: .55rem 1rem; color: var(--ink); font-size: 1.05rem; font-weight: 700; transition: background-color .3s, color .3s; }
+.svc-tabs button:hover:not(.on) { background: var(--gold-tint); }
+.svc-tabs button.on { background: var(--gold-solid); color: #fff; box-shadow: 0 6px 14px -6px var(--gold-deep); }
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.4vw, 32px); max-width: 1180px; margin: 0 auto 3rem; }
+.svc-grid > .rv { display: flex; } .svc-grid > .rv > * { flex: 1; }
+.svc-card { background: var(--paper); border: 1px solid var(--line); border-block-end: 4px solid var(--gold-solid); border-radius: 20px; min-height: 300px; padding: 2.2rem 1.4rem 1.7rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .6rem; box-shadow: var(--shadow-sm); transition: box-shadow .35s, transform .25s ease-out; }
+.svc-card:hover { box-shadow: var(--shadow-md); }
+.svc-ic { font-size: 3rem; line-height: 1; color: var(--gold-soft); height: 64px; display: grid; place-items: center; margin-bottom: .4rem; transition: transform .5s var(--ease); }
+.svc-card:hover .svc-ic { transform: translateY(-4px) scale(1.08); }
+.svc-img { height: 64px; object-fit: contain; }
+.svc-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+.svc-card p { flex: 1; font-size: 1rem; line-height: 1.85; color: #2b3340; }
+.svc-btn { display: inline-grid; place-items: center; min-width: 140px; padding: .3rem 1.2rem; margin-top: .8rem; border-radius: 999px; background: var(--gold-solid); color: #fff; font-size: .95rem; font-weight: 700; transition: background-color .25s, transform .25s; }
+.svc-btn:hover { background: var(--gold-deep); transform: translateY(-2px); }
+.svc-more { display: flex; justify-content: center; }
+.svc-more .btn { padding: .75rem 2.6rem; background: var(--gold-solid); }
+
+/* ===== pillar cards ===== */
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.4rem, 3.5vw, 3rem); align-items: start; max-width: 1120px; margin: 1rem auto 0; }
+.pillars > .rv:nth-child(2) { margin-top: 56px; }
+.pillar { background: var(--paper); border: 1px solid var(--line); border-block-start: 4px solid var(--gold-soft); border-radius: 20px; padding: 2rem 1.7rem 2.1rem; text-align: center; box-shadow: var(--shadow-sm); transition: transform .45s var(--ease), box-shadow .45s; }
+.pillar:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.pillar-ic { display: grid; place-items: center; width: 60px; height: 60px; margin: 0 auto .7rem; border-radius: 50%; background: var(--gold-tint); color: var(--gold-deep); font-size: 1.5rem; transition: background-color .35s, color .35s, transform .6s var(--ease); }
+.pillar:hover .pillar-ic { background: var(--gold-solid); color: #fff; transform: rotateY(360deg); }
+.pillar h3 { font-size: 1.35rem; color: var(--navy); }
+.pillar p { font-size: 1.05rem; line-height: 2; color: #2b3340; text-align: center; }
+
+/* ===== reviews ===== */
+.sec.is-review::before, .sec.is-review::after { width: 190px; top: 1.5rem; bottom: auto; height: 190px; opacity: .5; -webkit-mask-image: none; mask-image: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 190'%3E%3Cg fill='%23dcd6cb'%3E%3Crect x='96' y='24' width='8' height='140' rx='3'/%3E%3Crect x='56' y='164' width='88' height='12' rx='5'/%3E%3Crect x='20' y='36' width='160' height='7' rx='3'/%3E%3Ccircle cx='100' cy='20' r='11'/%3E%3Cpath d='M12 118h56a28 24 0 0 1-56 0zM132 118h56a28 24 0 0 1-56 0z'/%3E%3Cpath d='M40 43L14 118M40 43L66 118M160 43L134 118M160 43L186 118' stroke='%23dcd6cb' stroke-width='3' fill='none'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
+.sec.is-review::before { left: 8%; } .sec.is-review::after { right: 8%; }
+.is-review .slider-track { padding-top: 3.6rem; padding-bottom: 1.8rem; }
+.rev { position: relative; text-align: center; background: linear-gradient(180deg, #fff, var(--paper)); border: 1px solid var(--line); border-radius: 22px; padding: 3.2rem 1.7rem 2.1rem; box-shadow: var(--shadow-md); transition: transform .5s var(--ease), box-shadow .5s; }
+.rev::after { content: ""; position: absolute; bottom: -1px; inset-inline: 30%; height: 3px; border-radius: 3px; background: var(--gold-soft); transition: inset-inline .6s var(--ease); }
+.rev:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.rev:hover::after { inset-inline: 8%; }
+.rev header { display: block; }
+.rev-av { position: absolute; top: -40px; left: 50%; margin-left: -40px; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; box-shadow: 0 0 0 2px var(--gold-soft), 0 10px 20px -8px rgba(0, 0, 0, .4); display: grid; place-items: center; background: linear-gradient(135deg, var(--navy), #34567a); color: #fff; font: 700 1.9rem/1 var(--font); }
+.rev-av img { width: 100%; height: 100%; object-fit: cover; }
+.rev-tab { position: absolute; top: 1.1rem; inset-inline-end: 1.3rem; font-size: 1.8rem; color: var(--gold-soft); opacity: .35; line-height: 1; }
+.rev h3 { font-size: 1.2rem; color: var(--navy); margin-top: .2rem; }
+.rev-stars { display: flex; justify-content: center; gap: 4px; color: #d19a1d; font-size: .95rem; margin-top: .25rem; }
+.rev-line { display: block; width: 54px; height: 2px; background: var(--gold-soft); margin: .7rem auto 0; }
+.rev p { margin-top: 1rem; font-size: 1.05rem; line-height: 2; color: #1d2733; }
+
+@media (max-width: 1100px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } .sec.is-review::before, .sec.is-review::after { display: none; } }
+@media (max-width: 800px) { .pillars { grid-template-columns: 1fr; } .pillars > .rv:nth-child(2) { margin-top: 0; } }
+@media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } .svc-card { min-height: 0; } }

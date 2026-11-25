@@ -1,0 +1,381 @@
+/* Packages page — every class is prefixed pk- so nothing collides with other pages */
+.pk-page {
+    padding-block: 0 5rem;
+    position: relative;
+}
+
+/* ---- toolbar: categories | search | sort ----
+   Content-driven (not fixed breakpoints): the category chips never wrap inside themselves. If chips + search + sort
+   fit on one line they share it; if not (long English names, many categories, narrower screens such as 1024-1280px)
+   the chips take their own row and search + sort drop to the next row. */
+.pk-tools {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .8rem 1.1rem;
+    margin: -2rem 0 1.4rem;
+    padding: .9rem 1.2rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow-md);
+}
+
+.pk-chips {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .55rem;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: .25rem;
+    margin: -.25rem;
+    scrollbar-width: none;
+}
+
+.pk-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.pk-chips button {
+    flex: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy);
+    background: var(--paper);
+    border: 1px solid var(--gold-soft);
+    border-radius: 999px;
+    padding: .35rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    transition: background-color .3s, color .3s, transform .35s var(--ease);
+}
+
+.pk-chips button em {
+    font-style: normal;
+    font-size: .82rem;
+    min-width: 1.5rem;
+    padding: 0 .4rem;
+    text-align: center;
+    border-radius: 99px;
+    background: rgba(186, 157, 98, .22);
+}
+
+.pk-chips button:hover {
+    transform: translateY(-2px);
+}
+
+.pk-chips button.on {
+    background: var(--gold-solid);
+    border-color: var(--gold-solid);
+    color: #fff;
+}
+
+.pk-chips button.on em {
+    background: rgba(255, 255, 255, .28);
+}
+
+.pk-actions {
+    flex: 1 1 440px;
+    display: flex;
+    align-items: center;
+    gap: .8rem 1.1rem;
+    min-width: min-content;
+    max-width: 100%;
+}
+
+.pk-search {
+    position: relative;
+    display: block;
+    flex: 1 1 200px;
+    min-width: 220px;
+}
+
+.pk-search svg {
+    position: absolute;
+    inset-inline-start: .9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold-deep);
+    font-size: .9rem;
+    pointer-events: none;
+}
+
+.pk-search input {
+    padding: .5rem 1rem;
+    padding-inline-start: 2.4rem;
+    background: var(--paper);
+    border-color: var(--gold-soft);
+    border-radius: 999px;
+}
+
+.pk-sort {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    flex: 0 0 auto;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.pk-sort span {
+    white-space: nowrap;
+}
+
+.pk-sort select {
+    background-color: var(--paper);
+    border-color: var(--gold-soft);
+    border-radius: 999px;
+    padding-block: .45rem;
+    min-width: 0;
+    width: auto;
+    max-width: 100%;
+}
+
+.pk-count {
+    color: var(--gold-deep);
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+}
+
+.pk-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 1.15rem;
+    opacity: .75;
+}
+
+.pk-grid {
+    display: grid;
+    gap: 1.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+.pk-grid>.rv {
+    display: flex;
+}
+
+.pk-grid>.rv>* {
+    flex: 1;
+}
+
+.pk-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    isolation: isolate;
+    color: #1d2733;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .5s var(--ease), box-shadow .5s, border-color .4s;
+}
+
+.pk-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-soft);
+    box-shadow: var(--shadow-lg);
+}
+
+.pk-media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #1b1b19;
+}
+
+.pk-media .poster {
+    transition: transform .9s var(--ease);
+}
+
+.pk-card:hover .poster {
+    transform: scale(1.07);
+}
+
+.pk-media::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 5px;
+    background: var(--gold);
+}
+
+.pk-off {
+    position: absolute;
+    top: 14px;
+    inset-inline-end: 14px;
+    z-index: 3;
+    padding: .1rem .9rem;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 700;
+    font-size: .9rem;
+    line-height: 1.8;
+    background: var(--emerald);
+    box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .5);
+}
+
+.pk-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.3rem 1.4rem 1.4rem;
+}
+
+.pk-cat {
+    align-self: flex-start;
+    padding: .05rem .9rem;
+    border-radius: 999px;
+    background: var(--gold-tint);
+    color: var(--gold-deep);
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+.pk-body h3 {
+    margin: .7rem 0 .25rem;
+    font-size: 1.35rem;
+    color: var(--navy);
+}
+
+.pk-tag {
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: .8;
+}
+
+.pk-feat {
+    list-style: none;
+    margin: 1rem 0 1.2rem;
+    padding: 0;
+    display: grid;
+    gap: .45rem;
+    align-content: start;
+    flex: 1;
+}
+
+.pk-feat li {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    font-size: .98rem;
+    line-height: 1.7;
+}
+
+.pk-feat svg {
+    flex: none;
+    margin-top: .45em;
+    font-size: .85rem;
+    color: var(--emerald);
+}
+
+.pk-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e3d6bd;
+}
+
+.pk-price {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.pk-price del {
+    font-size: .92rem;
+    opacity: .5;
+}
+
+.pk-price b {
+    font-size: 1.5rem;
+    color: var(--navy);
+    font-family: var(--font);
+}
+
+.pk-go {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .45rem 1.15rem;
+    border-radius: 999px;
+    background: var(--gold-solid);
+    color: #fff;
+    font-size: .98rem;
+    font-weight: 700;
+    transition: background-color .3s, gap .35s var(--ease);
+}
+
+.pk-card:hover .pk-go {
+    background: var(--gold-deep);
+    gap: .85rem;
+}
+
+/* phone: chips scroll sideways in ONE line (fade at the edges); search and sort go full width */
+@media (max-width: 640px) {
+    .pk-tools {
+        margin-top: -1.4rem;
+        padding: .8rem;
+        border-radius: 18px;
+        gap: .7rem;
+    }
+
+    .pk-chips {
+        flex: 1 1 100%;
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+        mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    }
+
+    .pk-chips button {
+        padding: .3rem 1rem;
+        font-size: .95rem;
+    }
+
+    .pk-actions {
+        flex-direction: column;
+        align-items: stretch;
+        flex-basis: 100%;
+    }
+
+    .pk-search {
+        flex: none;
+        min-width: 0;
+    }
+
+    .pk-sort {
+        width: 100%;
+    }
+
+    .pk-sort select {
+        flex: 1;
+        width: 100%;
+    }
+
+    .pk-count {
+        margin-bottom: 1rem;
+    }
+
+    .pk-grid {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .pk-sort span {
+        display: none;
+    }
+
+    .pk-body {
+        padding: 1.1rem;
+    }
+}

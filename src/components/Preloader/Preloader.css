@@ -1,0 +1,9 @@
+.pre { position: fixed; inset: 0; z-index: 2000; background: radial-gradient(circle at 50% 40%, #2a261c, var(--dark, #1b1b19) 70%); display: grid; place-items: center; color: #fff; transition: opacity .6s, visibility .6s; }
+.pre.out { opacity: 0; visibility: hidden; }
+.pre-in { text-align: center; display: flex; flex-direction: column; gap: 1rem; align-items: center; padding: 1rem; }
+.pre-in span { display: block; transform-origin: top center; animation: swing 1.6s ease-in-out infinite; }
+.pre-in span img { display: block; width: min(180px, 42vw); height: auto; filter: drop-shadow(0 10px 30px rgba(186, 157, 98, .35)); }
+.pre-in b { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2rem); color: var(--gold-solid); }
+.pre-in i { width: 180px; height: 3px; background: rgba(255, 255, 255, .15); border-radius: 3px; overflow: hidden; position: relative; }
+.pre-in i::after { content: ""; position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; animation: load 1.8s ease forwards; }
+[dir=rtl] .pre-in i::after { transform-origin: right; }

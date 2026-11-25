@@ -1,0 +1,38 @@
+/* Banner: [photo] [fading dark overlay] [text block]. Colors/size come from CSS variables set in Banner.jsx. */
+.sec.t-banner { padding: 0; background-image: none; }
+.banner { --bn-h: 340px; --bn-dark: .6; --bn-light: .1; --bn-flat: .5; --bn-color: #fff; position: relative; display: flex; align-items: center; overflow: hidden; isolation: isolate; color: var(--bn-color); min-height: clamp(260px, 32vw, var(--bn-h)); background: linear-gradient(100deg, #6b5329, #2a1f10); }
+.banner-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.06); transition: transform 2.4s var(--ease); }
+.in .banner-img { transform: scale(1); }
+.banner-img.is-flipped { transform: scaleX(-1) scale(1.06); }
+.in .banner-img.is-flipped { transform: scaleX(-1); }
+.banner-overlay { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.banner[data-side="right"] .banner-overlay { background: linear-gradient(to left, rgba(18, 12, 4, var(--bn-dark)) 0%, rgba(18, 12, 4, calc(var(--bn-dark) * .85)) 45%, rgba(18, 12, 4, var(--bn-light)) 100%); }
+.banner[data-side="left"] .banner-overlay { background: linear-gradient(to right, rgba(18, 12, 4, var(--bn-dark)) 0%, rgba(18, 12, 4, calc(var(--bn-dark) * .85)) 45%, rgba(18, 12, 4, var(--bn-light)) 100%); }
+.banner[data-side="center"] .banner-overlay { background: rgba(18, 12, 4, var(--bn-flat)); }
+.banner-inner { display: flex; padding-block: clamp(2.2rem, 4vw, 3.2rem); }
+.banner[data-side="center"] .banner-inner { justify-content: center; }
+.banner[data-side="right"] .banner-inner { justify-content: flex-end; direction: ltr; }
+.banner[data-side="left"] .banner-inner { justify-content: flex-start; direction: ltr; }
+.banner-content { width: min(600px, 100%); text-align: center; text-shadow: 0 1px 10px rgba(0, 0, 0, .5); display: flex; flex-direction: column; align-items: center; }
+html[dir="rtl"] .banner-content { direction: rtl; }
+html[dir="ltr"] .banner-content { direction: ltr; }
+.banner h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; color: var(--bn-color); }
+.banner p { margin: 1rem 0 1.6rem; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 2; opacity: .96; text-wrap: balance; }
+.banner p:empty { display: none; }
+.banner .btn.banner-btn { display: inline-flex; align-items: center; gap: .6rem; padding: .65rem 2.6rem; background: var(--gold-soft); color: #1b1408; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .7); font-size: 1.1rem; text-shadow: none; }
+.banner .btn.banner-btn:hover { background: #e9c485; }
+.banner .btn.banner-btn svg { position: relative; z-index: 1; }
+
+.banner-contacts { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; justify-content: center; width: 100%; }
+.banner-contacts li { flex: 1; display: flex; flex-direction: column; align-items: center; gap: .15rem; padding-inline: .6rem; position: relative; font-size: .95rem; }
+.banner-contacts li + li::before { content: ""; position: absolute; inset-block: 4px; inset-inline-start: 0; width: 1px; background: rgba(255, 255, 255, .28); }
+.banner-contacts small { font-size: .82rem; opacity: .8; line-height: 1.5; }
+.bc-ic { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--gold-soft); color: var(--gold-soft); font-size: 1rem; margin-bottom: .25rem; transition: background-color .3s, color .3s, transform .4s var(--ease); }
+.banner-contacts li:hover .bc-ic { background: var(--gold-soft); color: #2a1f10; transform: translateY(-3px); }
+.banner-preview-box { border-radius: 12px; overflow: hidden; }
+@media (max-width: 700px) {
+  .banner[data-side="right"] .banner-overlay, .banner[data-side="left"] .banner-overlay { background: rgba(18, 12, 4, var(--bn-flat)); }
+  .banner-inner { justify-content: center !important; }
+  .banner-contacts { flex-wrap: wrap; row-gap: 1rem; }
+  .banner-contacts li { flex: 0 0 50%; }
+}

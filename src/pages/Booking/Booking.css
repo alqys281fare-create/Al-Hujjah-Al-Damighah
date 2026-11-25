@@ -1,0 +1,389 @@
+.bk-page {
+    padding-block: 0 5rem;
+}
+
+.bk {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 1.6rem;
+    margin-top: -2.4rem;
+    position: relative;
+    z-index: 2;
+    align-items: start;
+}
+
+.bk-main {
+    min-width: 0;
+}
+
+.formbox {
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 26px;
+    animation: up .8s var(--ease) both;
+    box-shadow: var(--shadow-lg);
+}
+
+.formbox h2 {
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    color: var(--navy);
+}
+
+.formbox>.muted {
+    margin: .3rem 0 1.2rem;
+    font-size: 1.02rem;
+}
+
+.formbox label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: .9rem 0;
+    color: var(--ink);
+}
+
+.formbox label input:not([type=checkbox]):not([type=radio]),
+.formbox label select,
+.formbox label textarea {
+    margin-top: .4rem;
+    font-weight: 400;
+}
+
+.frow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.1rem;
+}
+
+.bk-methods {
+    border: 0;
+    padding: 0;
+    margin: 1rem 0 .4rem;
+    min-width: 0;
+}
+
+.bk-methods legend {
+    font-weight: 600;
+    padding: 0;
+    margin-bottom: .5rem;
+}
+
+.methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .7rem;
+}
+
+.formbox .methods label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    margin: 0;
+    padding: .85rem .6rem;
+    border: 1.5px solid #d9cfba;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+    font-weight: 600;
+    transition: transform .35s var(--ease), border-color .25s, background-color .25s, box-shadow .3s;
+}
+
+.methods label:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold-soft);
+}
+
+.methods .on {
+    border-color: var(--gold-solid);
+    background: var(--gold-tint);
+    box-shadow: 0 10px 20px -12px var(--gold-deep);
+    color: var(--gold-deep);
+}
+
+.methods input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.methods label:has(input:focus-visible) {
+    outline: 3px solid rgba(186, 157, 98, .5);
+    outline-offset: 2px;
+}
+
+.formbox .chk {
+    display: flex;
+    margin: 1.1rem 0;
+    font-weight: 500;
+}
+
+.formbox .btn.wide {
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: .4rem;
+}
+
+.bk-err {
+    color: #b42318;
+    background: #fef3f2;
+    border: 1px solid #fecdca;
+    padding: .7rem 1rem;
+    border-radius: 12px;
+    margin-bottom: .8rem;
+    font-weight: 600;
+}
+
+.bk-done {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.2rem;
+    border-radius: 20px;
+    background: var(--emerald-soft);
+    border: 1px solid #b5dcc9;
+    color: var(--emerald);
+    animation: pop .6s var(--ease) both;
+}
+
+.bk-done svg {
+    font-size: 2rem;
+    flex: none;
+}
+
+.bk-done b {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.bk-done a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.bk-pkg {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .9rem 1.1rem;
+    margin-bottom: .6rem;
+    border-radius: 18px;
+    background: var(--paper);
+    border: 1px dashed var(--gold-solid);
+}
+
+.bk-pkg__ic {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--gold-solid);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.bk-pkg>div {
+    display: grid;
+    line-height: 1.5;
+    min-width: 0;
+}
+
+.bk-pkg small {
+    opacity: .7;
+}
+
+.bk-pkg b {
+    color: var(--navy);
+    font-size: 1.1rem;
+}
+
+.bk-pkg__tot {
+    margin-inline-start: auto;
+    text-align: end;
+}
+
+.side {
+    display: grid;
+    gap: 1.1rem;
+    position: sticky;
+    top: calc(var(--mb) + 6px);
+}
+
+.side .box {
+    margin: 0;
+    animation: up .8s var(--ease) both;
+    border-radius: 22px;
+}
+
+.side .box:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.side .box:nth-child(3) {
+    animation-delay: .24s;
+}
+
+.side h3 {
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.side p {
+    font-size: 1.02rem;
+    line-height: 1.9;
+}
+
+.side .dark {
+    background: linear-gradient(160deg, #25221b, #14130f);
+    color: #fff;
+    border-color: transparent;
+}
+
+.side .dark h3 {
+    color: var(--gold-solid);
+}
+
+.cream {
+    background: #efe6d2;
+}
+
+.step {
+    display: flex;
+    gap: .9rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.step i {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--main-color);
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    font-weight: 700;
+    flex: none;
+    color: #fff;
+}
+
+.step b {
+    font-size: 1.05rem;
+}
+
+.step small {
+    display: block;
+    opacity: .75;
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+.about-img {
+    display: block;
+    width: 100%;
+    max-height: 170px;
+    object-fit: contain;
+    margin: 0 auto 1rem;
+}
+
+.ic {
+    flex: none;
+    vertical-align: -0.15em;
+}
+
+.iline {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.iline a:hover {
+    color: var(--gold-deep);
+}
+
+@media (max-width: 980px) {
+    .bk {
+        grid-template-columns: 1fr;
+    }
+
+    .side {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .frow {
+        grid-template-columns: 1fr;
+    }
+
+    .methods {
+        grid-template-columns: 1fr;
+    }
+
+    .bk-pkg {
+        flex-wrap: wrap;
+    }
+
+    .bk-pkg__tot {
+        margin-inline-start: 0;
+        text-align: start;
+    }
+}
+
+.bk-files {
+    margin: .9rem 0;
+}
+
+.bk-files>label {
+    margin: 0 !important;
+}
+
+.bk-files ul {
+    list-style: none;
+    padding: 0;
+    margin: .6rem 0 0;
+    display: grid;
+    gap: .4rem;
+}
+
+.bk-files li {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    padding: .45rem .8rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.bk-files li span {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: start;
+}
+
+.bk-files li small {
+    opacity: .65;
+}
+
+.bk-files li button {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    background: #eadfc6;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.bk-files li button:hover {
+    background: #c0392b;
+    color: #fff;
+}

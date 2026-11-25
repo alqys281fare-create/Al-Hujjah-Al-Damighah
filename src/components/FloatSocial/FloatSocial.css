@@ -1,0 +1,22 @@
+.fs { position: fixed; bottom: 22px; z-index: 95; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.fs-start { inset-inline-start: 22px; }
+.fs-end { inset-inline-end: 88px; }
+.fs-main { position: relative; width: 54px; height: 54px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; background: var(--gold-solid); color: #fff; font-size: 1.35rem; display: grid; place-items: center; box-shadow: 0 12px 26px -6px rgba(120, 90, 40, .7); transition: transform .35s var(--ease), background-color .3s; }
+.fs-main::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--gold-solid); animation: ring 2.6s ease-out infinite; }
+.fs.open .fs-main::before { animation: none; opacity: 0; }
+.fs-main:hover { transform: scale(1.08); background: var(--gold-deep); }
+.fs-main svg { position: absolute; transition: transform .45s var(--ease), opacity .3s; }
+.fs-i2 { opacity: 0; transform: rotate(-90deg) scale(.5); }
+.fs.open .fs-i1 { opacity: 0; transform: rotate(90deg) scale(.5); }
+.fs.open .fs-i2 { opacity: 1; transform: none; }
+
+.fs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column-reverse; gap: 10px; pointer-events: none; }
+.fs.open .fs-list { pointer-events: auto; }
+.fs-list li { opacity: 0; transform: translateY(24px) scale(.4); transition: opacity .3s, transform .45s var(--ease); transition-delay: calc((8 - var(--i)) * 20ms); }
+.fs.open .fs-list li { opacity: 1; transform: none; transition-delay: calc(var(--i) * 55ms); }
+.fs-list a { position: relative; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; font-size: 1.2rem; box-shadow: 0 8px 18px -6px rgba(0, 0, 0, .45); transition: transform .3s var(--ease); }
+.fs-list a:hover { transform: scale(1.12); }
+.fs-tip { position: absolute; inset-inline-start: calc(100% + 10px); top: 50%; transform: translateY(-50%); white-space: nowrap; background: #1b1b19; color: #fff; font-size: .82rem; line-height: 1.6; padding: .1rem .7rem; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.fs-end .fs-tip { inset-inline-start: auto; inset-inline-end: calc(100% + 10px); }
+.fs-list a:hover .fs-tip, .fs-list a:focus-visible .fs-tip { opacity: 1; }
+@media (max-width: 600px) { .fs { bottom: 16px; } .fs-start { inset-inline-start: 16px; } .fs-end { inset-inline-end: 76px; } .fs-main { width: 48px; height: 48px; } }

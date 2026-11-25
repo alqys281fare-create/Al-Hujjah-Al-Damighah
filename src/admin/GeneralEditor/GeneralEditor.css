@@ -1,0 +1,7 @@
+.adm .fx { gap: 1.6rem; }
+.adm .fx .switch { margin: 0; }
+.adm .soc-f { display: flex; align-items: flex-end; gap: .7rem; }
+.adm .soc-f .fld { flex: 1; margin-bottom: .8rem; }
+.adm .soc-ic { flex: none; display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: .8rem; border-radius: 12px; font-size: 1.1rem; }
+.adm .nav-row { align-items: flex-start; }
+.adm .nav-row .bi { margin-bottom: 0; }

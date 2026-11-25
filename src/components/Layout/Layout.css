@@ -1,0 +1,2 @@
+/* spacer that reserves exactly the fixed header's height, so content starts right below it */
+.solid { background: var(--dark, #1b1b19); height: var(--hh); }

@@ -1,0 +1,12 @@
+.adm .bn-top { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.adm .bn-top b { font-size: 1.05rem; }
+.adm .bn-tools { display: flex; align-items: center; gap: 0.5rem; }
+.adm .bn-tools .switch { margin: 0; }
+.adm .bn-card.is-off .bn-preview { opacity: 0.45; filter: grayscale(0.7); }
+.adm .bn-preview { margin-bottom: 1.1rem; border-radius: 12px; border: 1px solid var(--a-line); overflow: hidden; transition: opacity 0.3s, filter 0.3s; }
+.adm .bn-preview .banner { min-height: min(var(--bn-h), 300px); }
+.adm .bn-preview .banner-content { max-width: 70%; }
+.adm .bn-preview .banner h2 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); }
+.adm .bn-preview .banner p { font-size: 0.85rem; line-height: 1.8; margin: 0.4rem 0 0.8rem; }
+.adm .bn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-bottom: 0.6rem; }
+@media (max-width: 800px) { .adm .bn-grid { grid-template-columns: 1fr; } }

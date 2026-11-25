@@ -1,0 +1,21 @@
+/* shared inner-page shell */
+.page { padding: 2.5rem 0 4.5rem; }
+.page h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); }
+
+.box {
+  background: var(--card, #fff); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.1rem;
+  box-shadow: var(--shadow-md); border: 1px solid var(--line);
+}
+
+/* hero band used by every inner page: starts exactly below the header, never under it */
+.band {
+  position: relative; overflow: hidden; isolation: isolate; color: #fff; text-align: start;
+  padding: clamp(2.4rem, 5vw, 4rem) 0 clamp(3.4rem, 6vw, 5rem);
+  background: linear-gradient(180deg, rgba(14, 12, 8, .86), rgba(14, 12, 8, .66)), var(--band-img, url("/poster2.png")) center / cover no-repeat, #1b1b19;
+}
+.band::after { content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 4px; background: var(--gold); }
+.band .crumbs { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .95rem; opacity: .85; margin-bottom: 1rem; }
+.band .crumbs a:hover { color: var(--gold-soft); }
+.band .crumbs svg { font-size: .7rem; opacity: .7; }
+.band h1 { color: #fff; font-size: clamp(2rem, 4.4vw, 3.2rem); animation: up .8s var(--ease) both; }
+.band p.lead { margin-top: .7rem; max-width: 60ch; font-size: 1.1rem; opacity: .9; animation: up .8s .12s var(--ease) both; }

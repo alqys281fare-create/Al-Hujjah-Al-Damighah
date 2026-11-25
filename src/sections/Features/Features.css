@@ -1,0 +1,8 @@
+.t-features { padding: clamp(1.8rem, 3vw, 2.4rem) 0; border-block: 1px solid rgba(255, 255, 255, .08); }
+.feats { display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: space-around; }
+.feats > .rv { flex: 1; min-width: 190px; }
+.feat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .15rem; width: 100%; }
+.feat-icon { color: var(--main-color); display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: .4rem; border-radius: 16px; background: rgba(186, 157, 98, .12); font-size: 1.7rem; transition: transform .4s var(--ease), background-color .3s; }
+.feat:hover .feat-icon { transform: translateY(-4px); background: rgba(186, 157, 98, .22); }
+.feat b { font-size: 1.15rem; color: #fff; }
+.feat small { font-size: .98rem; opacity: .72; }

@@ -1,0 +1,10 @@
+/* scroll reveal: a short fade + rise (no big slides), one calm easing */
+.rv { opacity: 0; transition: opacity .75s var(--ease) var(--d, 0ms), transform .75s var(--ease) var(--d, 0ms); }
+.rv-up { transform: translateY(28px); }
+.rv-zoom { transform: scale(.96) translateY(18px); }
+.rv-start { transform: translateX(calc(var(--dir) * 44px)); }
+.rv-end { transform: translateX(calc(var(--dir) * -44px)); }
+.rv-fade { transform: none; }
+.rv.in { opacity: 1; transform: none; }
+.grid > .rv, .stats > .rv, .feats > .rv { display: flex; }
+.grid > .rv > *, .stats > .rv > * { flex: 1; }

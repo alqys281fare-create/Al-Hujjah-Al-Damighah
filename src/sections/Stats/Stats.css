@@ -1,0 +1,8 @@
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.3rem; }
+.stat { text-align: center; padding: 2rem 1rem; border: 1px solid rgba(255, 255, 255, .14); border-radius: 22px; background: linear-gradient(160deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0)); transition: transform .4s var(--ease), border-color .3s, box-shadow .4s; }
+.stat:hover { border-color: var(--primary, #BA9D62); transform: translateY(-6px); box-shadow: 0 20px 40px -22px var(--primary, #BA9D62); }
+.sic { display: flex; align-items: center; justify-content: center; width: 66px; height: 66px; margin: 0 auto 1rem; border-radius: 20px; background: rgba(186, 157, 98, .14); color: #BA9D62; transition: background-color .3s, color .3s, transform .4s var(--ease); }
+.sic svg { width: 30px; height: 30px; }
+.stat:hover .sic { background: #BA9D62; color: #fff; transform: translateY(-4px); }
+.stat strong { display: block; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.4rem); background: var(--gold); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.2; direction: ltr; }
+.stat small { display: block; margin-top: .3rem; font-size: 1.1rem; opacity: .85; }

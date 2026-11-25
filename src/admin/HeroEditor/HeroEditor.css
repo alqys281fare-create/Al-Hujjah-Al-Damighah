@@ -1,0 +1,4 @@
+.adm .hero-prev{position:relative;height:200px;border-radius:12px;overflow:hidden;margin-bottom:1rem;background:#1b1b19}
+.adm .hero-prev-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s}
+.adm .hero-prev-img.flip{transform:scaleX(-1)}
+.adm .hero-prev-shade{position:absolute;inset:0;background:linear-gradient(to left,#0a0a08f5,#0a0a0866)}

@@ -1,0 +1,14 @@
+/* shared form controls (site + admin) */
+select, input, textarea {
+  padding: .75rem .95rem; border: 1.5px solid #d9cfba; border-radius: 12px; width: 100%;
+  background: #fff; color: inherit; font-size: 1rem;
+  transition: border-color .25s, box-shadow .25s, background-color .25s;
+}
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2394773F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left .95rem center; padding-inline-end: 1rem; padding-inline-start: 2.4rem; }
+[dir=ltr] select { background-position: right .95rem center; }
+input::placeholder, textarea::placeholder { color: #98927f; opacity: 1; }
+input:focus, select:focus, textarea:focus { outline: 0; border-color: var(--gold-solid); box-shadow: 0 0 0 4px rgba(186, 157, 98, .22); }
+textarea { resize: vertical; line-height: 1.8; }
+.sortrow select { width: auto; }
+.chk { display: flex; align-items: center; gap: .6rem; cursor: pointer; }
+.chk input { width: 1.15rem; height: 1.15rem; padding: 0; accent-color: var(--gold-deep); }

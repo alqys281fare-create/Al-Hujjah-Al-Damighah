@@ -1,0 +1,17 @@
+.adm .pe-tools { display: flex; gap: .6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.adm .pe-search { position: relative; flex: 1 1 260px; }
+.adm .pe-search svg { position: absolute; inset-inline-start: .85rem; top: 50%; transform: translateY(-50%); color: var(--a-soft); }
+.adm .pe-search input { padding-inline-start: 2.4rem; }
+.adm .pe-card { background: #fff; border: 1px solid var(--a-line); border-radius: var(--a-radius); margin-bottom: .8rem; box-shadow: var(--a-shadow); overflow: hidden; transition: border-color .2s; }
+.adm .pe-card.open { border-color: var(--a-gold); }
+.adm .pe-head { display: flex; align-items: center; gap: 1rem; padding: .7rem 1rem; cursor: pointer; }
+.adm .pe-thumb { flex: none; width: 84px; height: 56px; border-radius: 10px; overflow: hidden; background: #222; }
+.adm .pe-info { flex: 1; min-width: 0; display: grid; line-height: 1.4; }
+.adm .pe-info small { color: var(--a-soft); }
+.adm .pe-price { display: grid; text-align: end; line-height: 1.4; }
+.adm .pe-price small { color: var(--a-ok); font-weight: 700; }
+.adm .pe-tools-r { display: flex; gap: .3rem; }
+.adm .pe-chev { color: var(--a-soft); transition: transform .3s var(--ease); }
+.adm .pe-card.open .pe-chev { transform: rotate(180deg); }
+.adm .pe-body { padding: .4rem 1.2rem 1.2rem; border-top: 1px solid var(--a-line2); animation: fade .3s both; }
+@media (max-width: 700px) { .adm .pe-price { display: none; } .adm .pe-thumb { width: 64px; } }

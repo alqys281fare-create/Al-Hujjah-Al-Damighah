@@ -1,0 +1,16 @@
+
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dry-term-c57b",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-11-27",
+  "kv_namespaces": [
+    {
+      "binding": "LEGAL_SITE_KV",
+      "id": "e4292fe7a6124258a2294df367fc7114"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://alhujjah-aldamighah.vercel.app"
+  }
+}

@@ -216,7 +216,10 @@ function Details({ autoFile, r, list, fmt, money, T, lang, onClose, onOpen, setS
   const [copied, setCopied] = useState("");
   const { data: { settings: { brand } }, tr } = useApp();
   const [pdf, setPdf] = useState({ busy: "", url: "", name: "" });   // busy: "view" | "dl"
-  const makePdf = async () => buildRequestPdf(r, { T, lang, money, brand: tr(brand.name), logo: asset(brand.logo) || "/logo.png", fmt });
+  const [full, setFull] = useState(null);   // the list only has file names; the files themselves are loaded when a request is opened
+  useEffect(() => { setFull(null); if (r.attachments?.length) api.get("/requests/" + r.id).then(setFull).catch(() => {}); }, [r.id]);
+  const atts = (full && full.id === r.id && full.attachments) || r.attachments || [];
+  const makePdf = async () => buildRequestPdf({ ...r, attachments: atts }, { T, lang, money, brand: tr(brand.name), logo: asset(brand.logo) || "/logo.png", fmt });
   const viewPdf = async () => { setPdf({ busy: "view", url: "", name: "" }); try { setPdf({ busy: "", url: URL.createObjectURL(await makePdf()), name: pdfName(r) }); } catch (e) { console.error(e); setPdf({ busy: "", url: "", name: "" }); alert(T("تعذر إنشاء ملف PDF", "Could not create the PDF")); } };
   const downloadPdf = async (existing, name) => {
     setPdf((p) => ({ ...p, busy: "dl" }));
@@ -224,7 +227,7 @@ function Details({ autoFile, r, list, fmt, money, T, lang, onClose, onOpen, setS
     catch (e) { console.error(e); alert(T("تعذر إنشاء ملف PDF", "Could not create the PDF")); }
     setPdf((p) => ({ ...p, busy: "" }));
   };
-  useEffect(() => { const a = autoFile != null && r.attachments?.[autoFile]; if (a && canPreview(a)) viewFile(a); }, [autoFile, r.id]);
+  useEffect(() => { const a = autoFile != null && atts[autoFile]; if (a?.data && canPreview(a)) viewFile(a); }, [autoFile, r.id, full]);
   const closePdf = () => { URL.revokeObjectURL(pdf.url); setPdf({ busy: "", url: "", name: "" }); };
   // customer attachments: view (PDF / images) or download, straight from the stored file
   const viewFile = (a) => setPdf({ busy: "", url: URL.createObjectURL(attachmentBlob(a)), name: a.name });
@@ -264,7 +267,7 @@ function Details({ autoFile, r, list, fmt, money, T, lang, onClose, onOpen, setS
             <span className="dt-pdf__ic"><FaFilePdf /></span>
             <div><b>{pdfName(r)}</b><small>{T("ملف PDF بتفاصيل الطلب", "PDF with the request details")}</small></div>
             <button className="mini" disabled={!!pdf.busy} onClick={viewPdf}><FaEye /> {pdf.busy === "view" ? "…" : T("عرض", "View")}</button>
-            <button className="mini" disabled={!!pdf.busy} onClick={() => downloadPdf()}><FaDownload /> {pdf.busy === "dl" ? "…" : T("تحميل", "Download")}</button>
+            <button className="mini solid" disabled={!!pdf.busy} onClick={() => downloadPdf()}><FaDownload /> {pdf.busy === "dl" ? "…" : T("تحميل", "Download")}</button>
           </section>
 
           <section className="dt-actions">
@@ -303,14 +306,14 @@ function Details({ autoFile, r, list, fmt, money, T, lang, onClose, onOpen, setS
               <F l={T("الفترة المفضلة", "Preferred time")}>{r.slot}</F>
             </div>
             {r.details && <p className="dt-msg">{r.details}</p>}
-            {(r.attachments || []).length > 0 ? (
+            {atts.length > 0 ? (
               <ul className="dt-atts">
-                {r.attachments.map((a, i) => (
+                {atts.map((a, i) => (
                   <li key={i}>
                     <FaPaperclip />
                     <div><b dir="ltr">{a.name}</b><small className="num">{fmtSize(a.size)}</small></div>
-                    {canPreview(a) && <button className="mini" onClick={() => viewFile(a)}><FaEye /> {T("عرض", "View")}</button>}
-                    <button className="mini " onClick={() => saveFile(a)}><FaDownload /> {T("تحميل", "Download")}</button>
+                    {canPreview(a) && <button className="mini" disabled={!a.data} onClick={() => viewFile(a)}><FaEye /> {T("عرض", "View")}</button>}
+                    <button className="mini solid" disabled={!a.data} onClick={() => saveFile(a)}><FaDownload /> {T("تحميل", "Download")}</button>
                   </li>
                 ))}
               </ul>
